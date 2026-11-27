@@ -1,0 +1,6 @@
+{
+  "name": "NAMMAOORU",
+  "description": "NAMMAOORU (Namma Javabdari — Our City. Our Responsibility.) is an AI-powered civic intelligence and community action platform connecting citizens, government departments, NGOs, and community organisations in Bengaluru.",
+  "requestFramePermissions": ["microphone", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

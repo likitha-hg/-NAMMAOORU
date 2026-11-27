@@ -1,0 +1,2505 @@
+{
+  "city": {
+    "id": "city-bengaluru",
+    "name": "Bengaluru",
+    "state": "Karnataka",
+    "authority": "Bruhat Bengaluru Mahanagara Palike (BBMP)",
+    "center": {
+      "lat": 12.9716,
+      "lng": 77.5946
+    },
+    "datasetVersion": "2026.1-bbmp-master"
+  },
+  "zones": [
+    {
+      "id": "zone-east",
+      "cityId": "city-bengaluru",
+      "name": "East Zone",
+      "code": "BLR-E",
+      "center": {
+        "lat": 12.9896,
+        "lng": 77.6387
+      },
+      "defaultZoom": 12
+    },
+    {
+      "id": "zone-south",
+      "cityId": "city-bengaluru",
+      "name": "South Zone",
+      "code": "BLR-S",
+      "center": {
+        "lat": 12.9279,
+        "lng": 77.5855
+      },
+      "defaultZoom": 12
+    },
+    {
+      "id": "zone-west",
+      "cityId": "city-bengaluru",
+      "name": "West Zone",
+      "code": "BLR-W",
+      "center": {
+        "lat": 12.9885,
+        "lng": 77.5515
+      },
+      "defaultZoom": 12
+    },
+    {
+      "id": "zone-mahadevapura",
+      "cityId": "city-bengaluru",
+      "name": "Mahadevapura Zone",
+      "code": "BLR-MDP",
+      "center": {
+        "lat": 12.9752,
+        "lng": 77.716
+      },
+      "defaultZoom": 12
+    },
+    {
+      "id": "zone-bommanahalli",
+      "cityId": "city-bengaluru",
+      "name": "Bommanahalli Zone",
+      "code": "BLR-BMH",
+      "center": {
+        "lat": 12.8996,
+        "lng": 77.6194
+      },
+      "defaultZoom": 12
+    },
+    {
+      "id": "zone-yelahanka",
+      "cityId": "city-bengaluru",
+      "name": "Yelahanka Zone",
+      "code": "BLR-YLK",
+      "center": {
+        "lat": 13.0772,
+        "lng": 77.5963
+      },
+      "defaultZoom": 12
+    },
+    {
+      "id": "zone-dasarahalli",
+      "cityId": "city-bengaluru",
+      "name": "Dasarahalli Zone",
+      "code": "BLR-DSH",
+      "center": {
+        "lat": 13.045,
+        "lng": 77.515
+      },
+      "defaultZoom": 12
+    },
+    {
+      "id": "zone-rrnagar",
+      "cityId": "city-bengaluru",
+      "name": "Rajarajeshwari Nagar Zone",
+      "code": "BLR-RRN",
+      "center": {
+        "lat": 12.9315,
+        "lng": 77.5105
+      },
+      "defaultZoom": 12
+    }
+  ],
+  "wards": [
+    {
+      "id": "ward-80",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardNumber": 80,
+      "name": "Hoysala Nagar (Indiranagar)",
+      "center": {
+        "lat": 12.9784,
+        "lng": 77.6408
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-112",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardNumber": 112,
+      "name": "Domlur",
+      "center": {
+        "lat": 12.9609,
+        "lng": 77.6387
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-90",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardNumber": 90,
+      "name": "Halasuru (Ulsoor)",
+      "center": {
+        "lat": 12.9817,
+        "lng": 77.6285
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-57",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardNumber": 57,
+      "name": "C.V. Raman Nagar",
+      "center": {
+        "lat": 12.9855,
+        "lng": 77.6639
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-78",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardNumber": 78,
+      "name": "Pulakeshinagar",
+      "center": {
+        "lat": 12.999,
+        "lng": 77.614
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-92",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardNumber": 92,
+      "name": "Shivajinagar",
+      "center": {
+        "lat": 12.9857,
+        "lng": 77.6057
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-27",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardNumber": 27,
+      "name": "Banaswadi",
+      "center": {
+        "lat": 13.0104,
+        "lng": 77.655
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-24",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardNumber": 24,
+      "name": "HBR Layout",
+      "center": {
+        "lat": 13.0358,
+        "lng": 77.6323
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-111",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardNumber": 111,
+      "name": "Shanthala Nagar",
+      "center": {
+        "lat": 12.9718,
+        "lng": 77.6012
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-88",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardNumber": 88,
+      "name": "Jeevan Bheema Nagar",
+      "center": {
+        "lat": 12.966,
+        "lng": 77.6552
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-153",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardNumber": 153,
+      "name": "Jayanagar",
+      "center": {
+        "lat": 12.9299,
+        "lng": 77.5824
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-151",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardNumber": 151,
+      "name": "Koramangala",
+      "center": {
+        "lat": 12.9352,
+        "lng": 77.6245
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-154",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardNumber": 154,
+      "name": "Basavanagudi",
+      "center": {
+        "lat": 12.9406,
+        "lng": 77.5738
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-177",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardNumber": 177,
+      "name": "J.P. Nagar",
+      "center": {
+        "lat": 12.9063,
+        "lng": 77.5857
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-176",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardNumber": 176,
+      "name": "BTM Layout",
+      "center": {
+        "lat": 12.9166,
+        "lng": 77.6101
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-180",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardNumber": 180,
+      "name": "Banashankari Temple Ward",
+      "center": {
+        "lat": 12.9255,
+        "lng": 77.5468
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-182",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardNumber": 182,
+      "name": "Padmanabhanagar",
+      "center": {
+        "lat": 12.9181,
+        "lng": 77.5577
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-181",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardNumber": 181,
+      "name": "Kumaraswamy Layout",
+      "center": {
+        "lat": 12.9056,
+        "lng": 77.5625
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-146",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardNumber": 146,
+      "name": "Lakkasandra & Wilson Garden",
+      "center": {
+        "lat": 12.9442,
+        "lng": 77.5998
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-162",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardNumber": 162,
+      "name": "Girinagar",
+      "center": {
+        "lat": 12.941,
+        "lng": 77.546
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-45",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardNumber": 45,
+      "name": "Malleshwaram",
+      "center": {
+        "lat": 13.0031,
+        "lng": 77.5643
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-99",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardNumber": 99,
+      "name": "Rajajinagar",
+      "center": {
+        "lat": 12.9982,
+        "lng": 77.553
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-68",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardNumber": 68,
+      "name": "Mahalakshmi Layout",
+      "center": {
+        "lat": 13.0124,
+        "lng": 77.5421
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-100",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardNumber": 100,
+      "name": "Basaveshwaranagar",
+      "center": {
+        "lat": 12.9912,
+        "lng": 77.5378
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-123",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardNumber": 123,
+      "name": "Vijayanagar",
+      "center": {
+        "lat": 12.9719,
+        "lng": 77.533
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-128",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardNumber": 128,
+      "name": "Nagarabhavi",
+      "center": {
+        "lat": 12.961,
+        "lng": 77.5105
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-36",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardNumber": 36,
+      "name": "Mattikere",
+      "center": {
+        "lat": 13.0334,
+        "lng": 77.5588
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-140",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardNumber": 140,
+      "name": "Chamarajpet",
+      "center": {
+        "lat": 12.9565,
+        "lng": 77.5635
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-94",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardNumber": 94,
+      "name": "Gandhinagar & Majestic",
+      "center": {
+        "lat": 12.9778,
+        "lng": 77.5775
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-43",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardNumber": 43,
+      "name": "Nandini Layout",
+      "center": {
+        "lat": 13.0128,
+        "lng": 77.5339
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-84",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardNumber": 84,
+      "name": "Hagadur (Whitefield)",
+      "center": {
+        "lat": 12.9698,
+        "lng": 77.75
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-83",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardNumber": 83,
+      "name": "Kadugodi",
+      "center": {
+        "lat": 12.999,
+        "lng": 77.761
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-54",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardNumber": 54,
+      "name": "Hoodi",
+      "center": {
+        "lat": 12.9922,
+        "lng": 77.7159
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-82",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardNumber": 82,
+      "name": "Garudacharpalya & Mahadevapura",
+      "center": {
+        "lat": 12.9916,
+        "lng": 77.698
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-85",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardNumber": 85,
+      "name": "Doddanekkundi & Marathahalli",
+      "center": {
+        "lat": 12.969,
+        "lng": 77.701
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-150",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardNumber": 150,
+      "name": "Bellandur",
+      "center": {
+        "lat": 12.9259,
+        "lng": 77.6762
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-149",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardNumber": 149,
+      "name": "Varthur",
+      "center": {
+        "lat": 12.9406,
+        "lng": 77.7469
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-52",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardNumber": 52,
+      "name": "K.R. Puram",
+      "center": {
+        "lat": 13.0068,
+        "lng": 77.6956
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-25",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardNumber": 25,
+      "name": "Horamavu",
+      "center": {
+        "lat": 13.0273,
+        "lng": 77.6648
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-26",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardNumber": 26,
+      "name": "Ramamurthy Nagar",
+      "center": {
+        "lat": 13.016,
+        "lng": 77.678
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-174",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardNumber": 174,
+      "name": "HSR Layout",
+      "center": {
+        "lat": 12.9121,
+        "lng": 77.6446
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-175",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardNumber": 175,
+      "name": "Bommanahalli",
+      "center": {
+        "lat": 12.903,
+        "lng": 77.6242
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-192",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardNumber": 192,
+      "name": "Begur",
+      "center": {
+        "lat": 12.8805,
+        "lng": 77.6258
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-191",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardNumber": 191,
+      "name": "Singasandra & Kudlu",
+      "center": {
+        "lat": 12.8825,
+        "lng": 77.644
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-193",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardNumber": 193,
+      "name": "Arakere",
+      "center": {
+        "lat": 12.8855,
+        "lng": 77.602
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-194",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardNumber": 194,
+      "name": "Gottigere",
+      "center": {
+        "lat": 12.8565,
+        "lng": 77.5892
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-188",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardNumber": 188,
+      "name": "Bilekahalli",
+      "center": {
+        "lat": 12.8992,
+        "lng": 77.6078
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-187",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardNumber": 187,
+      "name": "Puttenahalli",
+      "center": {
+        "lat": 12.892,
+        "lng": 77.585
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-195",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardNumber": 195,
+      "name": "Konanakunte & Anjanapura",
+      "center": {
+        "lat": 12.875,
+        "lng": 77.565
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-196",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardNumber": 196,
+      "name": "Electronic City Corridor",
+      "center": {
+        "lat": 12.8452,
+        "lng": 77.6602
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-1",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-yelahanka",
+      "wardNumber": 1,
+      "name": "Kempegowda (Yelahanka)",
+      "center": {
+        "lat": 13.1007,
+        "lng": 77.5963
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-4",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-yelahanka",
+      "wardNumber": 4,
+      "name": "Yelahanka Satellite Town",
+      "center": {
+        "lat": 13.097,
+        "lng": 77.58
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-5",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-yelahanka",
+      "wardNumber": 5,
+      "name": "Jakkur",
+      "center": {
+        "lat": 13.0785,
+        "lng": 77.6095
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-6",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-yelahanka",
+      "wardNumber": 6,
+      "name": "Thanisandra",
+      "center": {
+        "lat": 13.0588,
+        "lng": 77.6309
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-7",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-yelahanka",
+      "wardNumber": 7,
+      "name": "Byatarayanapura & Sahakara Nagar",
+      "center": {
+        "lat": 13.0622,
+        "lng": 77.5892
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-8",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-yelahanka",
+      "wardNumber": 8,
+      "name": "Kodigehalli",
+      "center": {
+        "lat": 13.063,
+        "lng": 77.575
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-9",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-yelahanka",
+      "wardNumber": 9,
+      "name": "Vidyaranyapura",
+      "center": {
+        "lat": 13.0816,
+        "lng": 77.5562
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-21",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-yelahanka",
+      "wardNumber": 21,
+      "name": "Hebbal",
+      "center": {
+        "lat": 13.0354,
+        "lng": 77.597
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-15",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-dasarahalli",
+      "wardNumber": 15,
+      "name": "T. Dasarahalli",
+      "center": {
+        "lat": 13.0434,
+        "lng": 77.5125
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-14",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-dasarahalli",
+      "wardNumber": 14,
+      "name": "Bagalgunte",
+      "center": {
+        "lat": 13.057,
+        "lng": 77.5085
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-12",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-dasarahalli",
+      "wardNumber": 12,
+      "name": "Shettyhalli & Jalahalli West",
+      "center": {
+        "lat": 13.066,
+        "lng": 77.523
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-39",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-dasarahalli",
+      "wardNumber": 39,
+      "name": "Chokkasandra & Peenya",
+      "center": {
+        "lat": 13.0329,
+        "lng": 77.5273
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-71",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-dasarahalli",
+      "wardNumber": 71,
+      "name": "Hegganahalli",
+      "center": {
+        "lat": 13.0055,
+        "lng": 77.503
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-13",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-dasarahalli",
+      "wardNumber": 13,
+      "name": "Mallasandra",
+      "center": {
+        "lat": 13.054,
+        "lng": 77.522
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-160",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-rrnagar",
+      "wardNumber": 160,
+      "name": "Rajarajeshwari Nagar",
+      "center": {
+        "lat": 12.9141,
+        "lng": 77.5198
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-159",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-rrnagar",
+      "wardNumber": 159,
+      "name": "Kengeri",
+      "center": {
+        "lat": 12.9175,
+        "lng": 77.4833
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-129",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-rrnagar",
+      "wardNumber": 129,
+      "name": "Jnana Bharathi",
+      "center": {
+        "lat": 12.9445,
+        "lng": 77.5095
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-130",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-rrnagar",
+      "wardNumber": 130,
+      "name": "Ullal",
+      "center": {
+        "lat": 12.9598,
+        "lng": 77.4846
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-131",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-rrnagar",
+      "wardNumber": 131,
+      "name": "Nayandahalli",
+      "center": {
+        "lat": 12.9441,
+        "lng": 77.5236
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-38",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-rrnagar",
+      "wardNumber": 38,
+      "name": "HMT & Jalahalli",
+      "center": {
+        "lat": 13.0445,
+        "lng": 77.5435
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-72",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-rrnagar",
+      "wardNumber": 72,
+      "name": "Herohalli & Sunkadakatte",
+      "center": {
+        "lat": 12.989,
+        "lng": 77.498
+      },
+      "defaultZoom": 14
+    },
+    {
+      "id": "ward-69",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-rrnagar",
+      "wardNumber": 69,
+      "name": "Laggere",
+      "center": {
+        "lat": 13.008,
+        "lng": 77.521
+      },
+      "defaultZoom": 14
+    }
+  ],
+  "localities": [
+    {
+      "id": "loc-indiranagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-80",
+      "name": "Indiranagar",
+      "pincode": "560038",
+      "aliases": [
+        "Indira Nagar",
+        "100 Feet Road",
+        "Hoysala Nagar",
+        "HAL 2nd Stage"
+      ],
+      "center": {
+        "lat": 12.9784,
+        "lng": 77.6408
+      }
+    },
+    {
+      "id": "loc-defence-colony",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-80",
+      "name": "Defence Colony (Indiranagar)",
+      "pincode": "560038",
+      "center": {
+        "lat": 12.9746,
+        "lng": 77.6462
+      }
+    },
+    {
+      "id": "loc-domlur",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-112",
+      "name": "Domlur",
+      "pincode": "560071",
+      "aliases": [
+        "Domlur Layout",
+        "EGL"
+      ],
+      "center": {
+        "lat": 12.9609,
+        "lng": 77.6387
+      }
+    },
+    {
+      "id": "loc-kodihalli",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-112",
+      "name": "Kodihalli",
+      "pincode": "560008",
+      "center": {
+        "lat": 12.9655,
+        "lng": 77.6495
+      }
+    },
+    {
+      "id": "loc-halasuru",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-90",
+      "name": "Halasuru",
+      "pincode": "560008",
+      "aliases": [
+        "Ulsoor",
+        "Ulsoor Lake"
+      ],
+      "center": {
+        "lat": 12.9817,
+        "lng": 77.6285
+      }
+    },
+    {
+      "id": "loc-cambridge-layout",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-90",
+      "name": "Cambridge Layout",
+      "pincode": "560008",
+      "center": {
+        "lat": 12.9697,
+        "lng": 77.6295
+      }
+    },
+    {
+      "id": "loc-cv-raman-nagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-57",
+      "name": "C.V. Raman Nagar",
+      "pincode": "560093",
+      "aliases": [
+        "CV Raman Nagar",
+        "Byrasandra"
+      ],
+      "center": {
+        "lat": 12.9855,
+        "lng": 77.6639
+      }
+    },
+    {
+      "id": "loc-kaggadasapura",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-57",
+      "name": "Kaggadasapura",
+      "pincode": "560093",
+      "center": {
+        "lat": 12.9835,
+        "lng": 77.6765
+      }
+    },
+    {
+      "id": "loc-frazer-town",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-78",
+      "name": "Frazer Town",
+      "pincode": "560005",
+      "aliases": [
+        "Pulakeshinagar",
+        "Fraser Town"
+      ],
+      "center": {
+        "lat": 12.9968,
+        "lng": 77.613
+      }
+    },
+    {
+      "id": "loc-cox-town",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-78",
+      "name": "Cox Town",
+      "pincode": "560005",
+      "center": {
+        "lat": 12.9935,
+        "lng": 77.6215
+      }
+    },
+    {
+      "id": "loc-benson-town",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-78",
+      "name": "Benson Town",
+      "pincode": "560046",
+      "center": {
+        "lat": 12.9992,
+        "lng": 77.6032
+      }
+    },
+    {
+      "id": "loc-shivajinagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-92",
+      "name": "Shivajinagar",
+      "pincode": "560051",
+      "center": {
+        "lat": 12.9857,
+        "lng": 77.6057
+      }
+    },
+    {
+      "id": "loc-vasanth-nagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-92",
+      "name": "Vasanth Nagar",
+      "pincode": "560052",
+      "center": {
+        "lat": 12.9905,
+        "lng": 77.5908
+      }
+    },
+    {
+      "id": "loc-banaswadi",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-27",
+      "name": "Banaswadi",
+      "pincode": "560043",
+      "center": {
+        "lat": 13.0104,
+        "lng": 77.655
+      }
+    },
+    {
+      "id": "loc-kammanahalli",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-27",
+      "name": "Kammanahalli",
+      "pincode": "560084",
+      "center": {
+        "lat": 13.0159,
+        "lng": 77.6378
+      }
+    },
+    {
+      "id": "loc-kalyan-nagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-27",
+      "name": "Kalyan Nagar",
+      "pincode": "560043",
+      "aliases": [
+        "HRBR Layout"
+      ],
+      "center": {
+        "lat": 13.0221,
+        "lng": 77.6403
+      }
+    },
+    {
+      "id": "loc-hbr-layout",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-24",
+      "name": "HBR Layout",
+      "pincode": "560043",
+      "center": {
+        "lat": 13.0358,
+        "lng": 77.6323
+      }
+    },
+    {
+      "id": "loc-hennur",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-24",
+      "name": "Hennur",
+      "pincode": "560043",
+      "aliases": [
+        "Hennur Gardens",
+        "Hennur Road"
+      ],
+      "center": {
+        "lat": 13.0445,
+        "lng": 77.648
+      }
+    },
+    {
+      "id": "loc-mg-road",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-111",
+      "name": "M.G. Road & Ashok Nagar",
+      "pincode": "560001",
+      "aliases": [
+        "MG Road",
+        "Brigade Road",
+        "Shanthala Nagar"
+      ],
+      "center": {
+        "lat": 12.9756,
+        "lng": 77.6066
+      }
+    },
+    {
+      "id": "loc-richmond-town",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-111",
+      "name": "Richmond Town",
+      "pincode": "560025",
+      "aliases": [
+        "Langford Town",
+        "Shanthinagar"
+      ],
+      "center": {
+        "lat": 12.9648,
+        "lng": 77.601
+      }
+    },
+    {
+      "id": "loc-jb-nagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-88",
+      "name": "Jeevan Bheema Nagar",
+      "pincode": "560075",
+      "aliases": [
+        "JB Nagar",
+        "New Thippasandra",
+        "HAL 3rd Stage"
+      ],
+      "center": {
+        "lat": 12.966,
+        "lng": 77.6552
+      }
+    },
+    {
+      "id": "loc-thippasandra",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-88",
+      "name": "New Thippasandra",
+      "pincode": "560075",
+      "center": {
+        "lat": 12.9718,
+        "lng": 77.6518
+      }
+    },
+    {
+      "id": "loc-jayanagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-153",
+      "name": "Jayanagar",
+      "pincode": "560041",
+      "aliases": [
+        "Jayanagar 4th Block",
+        "Jayanagar 3rd Block",
+        "Jayanagar 9th Block"
+      ],
+      "center": {
+        "lat": 12.9299,
+        "lng": 77.5824
+      }
+    },
+    {
+      "id": "loc-tilaknagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-153",
+      "name": "Tilak Nagar",
+      "pincode": "560041",
+      "center": {
+        "lat": 12.9278,
+        "lng": 77.596
+      }
+    },
+    {
+      "id": "loc-koramangala",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-151",
+      "name": "Koramangala",
+      "pincode": "560034",
+      "aliases": [
+        "Koramangala 4th Block",
+        "Koramangala 5th Block",
+        "Koramangala 6th Block",
+        "Sony Signal"
+      ],
+      "center": {
+        "lat": 12.9352,
+        "lng": 77.6245
+      }
+    },
+    {
+      "id": "loc-ejipura",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-151",
+      "name": "Ejipura",
+      "pincode": "560047",
+      "center": {
+        "lat": 12.9422,
+        "lng": 77.6238
+      }
+    },
+    {
+      "id": "loc-st-johns-madiwala",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-151",
+      "name": "Madiwala",
+      "pincode": "560068",
+      "aliases": [
+        "Madivala"
+      ],
+      "center": {
+        "lat": 12.9212,
+        "lng": 77.6174
+      }
+    },
+    {
+      "id": "loc-basavanagudi",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-154",
+      "name": "Basavanagudi",
+      "pincode": "560004",
+      "aliases": [
+        "Gandhi Bazaar",
+        "Bull Temple Road"
+      ],
+      "center": {
+        "lat": 12.9406,
+        "lng": 77.5738
+      }
+    },
+    {
+      "id": "loc-vv-puram",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-154",
+      "name": "V.V. Puram & Mavalli",
+      "pincode": "560004",
+      "aliases": [
+        "VV Puram",
+        "Lalbagh"
+      ],
+      "center": {
+        "lat": 12.9507,
+        "lng": 77.5798
+      }
+    },
+    {
+      "id": "loc-jp-nagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-177",
+      "name": "J.P. Nagar",
+      "pincode": "560078",
+      "aliases": [
+        "JP Nagar",
+        "JP Nagar 2nd Phase",
+        "JP Nagar 6th Phase",
+        "JP Nagar 7th Phase"
+      ],
+      "center": {
+        "lat": 12.9063,
+        "lng": 77.5857
+      }
+    },
+    {
+      "id": "loc-sarakki",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-177",
+      "name": "Sarakki",
+      "pincode": "560078",
+      "center": {
+        "lat": 12.9078,
+        "lng": 77.5735
+      }
+    },
+    {
+      "id": "loc-btm-layout",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-176",
+      "name": "BTM Layout",
+      "pincode": "560076",
+      "aliases": [
+        "BTM 1st Stage",
+        "BTM 2nd Stage",
+        "Tavarekere"
+      ],
+      "center": {
+        "lat": 12.9166,
+        "lng": 77.6101
+      }
+    },
+    {
+      "id": "loc-suddaguntepalya",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-176",
+      "name": "Suddaguntepalya",
+      "pincode": "560029",
+      "aliases": [
+        "SG Palya"
+      ],
+      "center": {
+        "lat": 12.931,
+        "lng": 77.6062
+      }
+    },
+    {
+      "id": "loc-banashankari",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-180",
+      "name": "Banashankari",
+      "pincode": "560070",
+      "aliases": [
+        "BSK",
+        "Banashankari 2nd Stage",
+        "Banashankari 3rd Stage"
+      ],
+      "center": {
+        "lat": 12.9255,
+        "lng": 77.5468
+      }
+    },
+    {
+      "id": "loc-katriguppe",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-180",
+      "name": "Kathriguppe",
+      "pincode": "560085",
+      "center": {
+        "lat": 12.9296,
+        "lng": 77.5545
+      }
+    },
+    {
+      "id": "loc-padmanabhanagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-182",
+      "name": "Padmanabhanagar",
+      "pincode": "560070",
+      "center": {
+        "lat": 12.9181,
+        "lng": 77.5577
+      }
+    },
+    {
+      "id": "loc-chikkalasandra",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-182",
+      "name": "Chikkalasandra",
+      "pincode": "560061",
+      "center": {
+        "lat": 12.9125,
+        "lng": 77.5472
+      }
+    },
+    {
+      "id": "loc-kumaraswamy-layout",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-181",
+      "name": "Kumaraswamy Layout",
+      "pincode": "560078",
+      "aliases": [
+        "KS Layout"
+      ],
+      "center": {
+        "lat": 12.9056,
+        "lng": 77.5625
+      }
+    },
+    {
+      "id": "loc-uttarahalli",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-181",
+      "name": "Uttarahalli",
+      "pincode": "560061",
+      "center": {
+        "lat": 12.9068,
+        "lng": 77.547
+      }
+    },
+    {
+      "id": "loc-wilson-garden",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-146",
+      "name": "Wilson Garden",
+      "pincode": "560027",
+      "aliases": [
+        "Lakkasandra",
+        "Adugodi"
+      ],
+      "center": {
+        "lat": 12.9442,
+        "lng": 77.5998
+      }
+    },
+    {
+      "id": "loc-girinagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-south",
+      "wardId": "ward-162",
+      "name": "Girinagar",
+      "pincode": "560085",
+      "aliases": [
+        "Hosakerehalli",
+        "Banashankari 1st Stage"
+      ],
+      "center": {
+        "lat": 12.941,
+        "lng": 77.546
+      }
+    },
+    {
+      "id": "loc-malleshwaram",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardId": "ward-45",
+      "name": "Malleshwaram",
+      "pincode": "560003",
+      "aliases": [
+        "Malleswaram",
+        "8th Cross Malleshwaram",
+        "Sampige Road"
+      ],
+      "center": {
+        "lat": 13.0031,
+        "lng": 77.5643
+      }
+    },
+    {
+      "id": "loc-sadashivanagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardId": "ward-45",
+      "name": "Sadashivanagar",
+      "pincode": "560080",
+      "aliases": [
+        "Sankey Tank"
+      ],
+      "center": {
+        "lat": 13.0068,
+        "lng": 77.5813
+      }
+    },
+    {
+      "id": "loc-rajajinagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardId": "ward-99",
+      "name": "Rajajinagar",
+      "pincode": "560010",
+      "aliases": [
+        "Rajaji Nagar",
+        "Dr Rajkumar Road"
+      ],
+      "center": {
+        "lat": 12.9982,
+        "lng": 77.553
+      }
+    },
+    {
+      "id": "loc-prakash-nagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardId": "ward-99",
+      "name": "Prakash Nagar",
+      "pincode": "560021",
+      "aliases": [
+        "Srirampura"
+      ],
+      "center": {
+        "lat": 12.9942,
+        "lng": 77.5608
+      }
+    },
+    {
+      "id": "loc-mahalakshmi-layout",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardId": "ward-68",
+      "name": "Mahalakshmi Layout",
+      "pincode": "560086",
+      "center": {
+        "lat": 13.0124,
+        "lng": 77.5421
+      }
+    },
+    {
+      "id": "loc-basaveshwaranagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardId": "ward-100",
+      "name": "Basaveshwaranagar",
+      "pincode": "560079",
+      "aliases": [
+        "Basaveshwar Nagar",
+        "Kamakshipalya"
+      ],
+      "center": {
+        "lat": 12.9912,
+        "lng": 77.5378
+      }
+    },
+    {
+      "id": "loc-vijayanagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardId": "ward-123",
+      "name": "Vijayanagar",
+      "pincode": "560040",
+      "aliases": [
+        "RPC Layout",
+        "Attiguppe"
+      ],
+      "center": {
+        "lat": 12.9719,
+        "lng": 77.533
+      }
+    },
+    {
+      "id": "loc-chandra-layout",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardId": "ward-123",
+      "name": "Chandra Layout",
+      "pincode": "560040",
+      "center": {
+        "lat": 12.9615,
+        "lng": 77.5268
+      }
+    },
+    {
+      "id": "loc-nagarabhavi",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardId": "ward-128",
+      "name": "Nagarabhavi",
+      "pincode": "560072",
+      "aliases": [
+        "Nagarbhavi"
+      ],
+      "center": {
+        "lat": 12.961,
+        "lng": 77.5105
+      }
+    },
+    {
+      "id": "loc-mattikere",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardId": "ward-36",
+      "name": "Mattikere",
+      "pincode": "560054",
+      "aliases": [
+        "Mathikere",
+        "Yeshwanthpur"
+      ],
+      "center": {
+        "lat": 13.0334,
+        "lng": 77.5588
+      }
+    },
+    {
+      "id": "loc-yeshwanthpur",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardId": "ward-36",
+      "name": "Yeshwanthpur",
+      "pincode": "560022",
+      "aliases": [
+        "Yeshwantpur"
+      ],
+      "center": {
+        "lat": 13.0285,
+        "lng": 77.5462
+      }
+    },
+    {
+      "id": "loc-chamarajpet",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardId": "ward-140",
+      "name": "Chamarajpet",
+      "pincode": "560018",
+      "aliases": [
+        "Chamrajpet"
+      ],
+      "center": {
+        "lat": 12.9565,
+        "lng": 77.5635
+      }
+    },
+    {
+      "id": "loc-chickpet",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardId": "ward-140",
+      "name": "Chickpet & KR Market",
+      "pincode": "560053",
+      "aliases": [
+        "KR Market",
+        "City Market"
+      ],
+      "center": {
+        "lat": 12.966,
+        "lng": 77.5764
+      }
+    },
+    {
+      "id": "loc-gandhinagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardId": "ward-94",
+      "name": "Gandhinagar",
+      "pincode": "560009",
+      "aliases": [
+        "Majestic",
+        "Seshadripuram"
+      ],
+      "center": {
+        "lat": 12.9778,
+        "lng": 77.5775
+      }
+    },
+    {
+      "id": "loc-nandini-layout",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-west",
+      "wardId": "ward-43",
+      "name": "Nandini Layout",
+      "pincode": "560096",
+      "center": {
+        "lat": 13.0128,
+        "lng": 77.5339
+      }
+    },
+    {
+      "id": "loc-whitefield",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardId": "ward-84",
+      "name": "Whitefield",
+      "pincode": "560066",
+      "aliases": [
+        "ITPL",
+        "Hope Farm",
+        "Hagadur"
+      ],
+      "center": {
+        "lat": 12.9698,
+        "lng": 77.75
+      }
+    },
+    {
+      "id": "loc-brookefield",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardId": "ward-84",
+      "name": "Brookefield",
+      "pincode": "560037",
+      "aliases": [
+        "AECS Layout",
+        "Kundalahalli"
+      ],
+      "center": {
+        "lat": 12.9652,
+        "lng": 77.7176
+      }
+    },
+    {
+      "id": "loc-kadugodi",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardId": "ward-83",
+      "name": "Kadugodi",
+      "pincode": "560067",
+      "aliases": [
+        "Seegehalli"
+      ],
+      "center": {
+        "lat": 12.999,
+        "lng": 77.761
+      }
+    },
+    {
+      "id": "loc-hoodi",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardId": "ward-54",
+      "name": "Hoodi",
+      "pincode": "560048",
+      "aliases": [
+        "Graphite India"
+      ],
+      "center": {
+        "lat": 12.9922,
+        "lng": 77.7159
+      }
+    },
+    {
+      "id": "loc-mahadevapura",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardId": "ward-82",
+      "name": "Mahadevapura",
+      "pincode": "560048",
+      "aliases": [
+        "Garudacharpalya",
+        "B Narayanapura"
+      ],
+      "center": {
+        "lat": 12.9916,
+        "lng": 77.698
+      }
+    },
+    {
+      "id": "loc-marathahalli",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardId": "ward-85",
+      "name": "Marathahalli",
+      "pincode": "560037",
+      "aliases": [
+        "Munnekollal",
+        "Doddanekkundi"
+      ],
+      "center": {
+        "lat": 12.9591,
+        "lng": 77.6974
+      }
+    },
+    {
+      "id": "loc-bellandur",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardId": "ward-150",
+      "name": "Bellandur",
+      "pincode": "560103",
+      "aliases": [
+        "ORR Bellandur",
+        "Ecospace",
+        "Kasavanahalli"
+      ],
+      "center": {
+        "lat": 12.9259,
+        "lng": 77.6762
+      }
+    },
+    {
+      "id": "loc-sarjapur-road",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardId": "ward-150",
+      "name": "Sarjapur Road",
+      "pincode": "560035",
+      "aliases": [
+        "Kaikondrahalli",
+        "Haralur",
+        "Doddakannelli"
+      ],
+      "center": {
+        "lat": 12.9102,
+        "lng": 77.6845
+      }
+    },
+    {
+      "id": "loc-varthur",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardId": "ward-149",
+      "name": "Varthur",
+      "pincode": "560087",
+      "aliases": [
+        "Panathur",
+        "Gunjur"
+      ],
+      "center": {
+        "lat": 12.9406,
+        "lng": 77.7469
+      }
+    },
+    {
+      "id": "loc-kr-puram",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardId": "ward-52",
+      "name": "K.R. Puram",
+      "pincode": "560036",
+      "aliases": [
+        "KR Puram",
+        "Krishnarajapura",
+        "Tin Factory"
+      ],
+      "center": {
+        "lat": 13.0068,
+        "lng": 77.6956
+      }
+    },
+    {
+      "id": "loc-horamavu",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardId": "ward-25",
+      "name": "Horamavu",
+      "pincode": "560043",
+      "aliases": [
+        "Kalkere",
+        "Babusapalya"
+      ],
+      "center": {
+        "lat": 13.0273,
+        "lng": 77.6648
+      }
+    },
+    {
+      "id": "loc-ramamurthy-nagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-mahadevapura",
+      "wardId": "ward-26",
+      "name": "Ramamurthy Nagar",
+      "pincode": "560016",
+      "aliases": [
+        "Kasturi Nagar"
+      ],
+      "center": {
+        "lat": 13.016,
+        "lng": 77.678
+      }
+    },
+    {
+      "id": "loc-hsr-layout",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardId": "ward-174",
+      "name": "HSR Layout",
+      "pincode": "560102",
+      "aliases": [
+        "HSR",
+        "Agara",
+        "Sector 1 HSR",
+        "Sector 2 HSR"
+      ],
+      "center": {
+        "lat": 12.9121,
+        "lng": 77.6446
+      }
+    },
+    {
+      "id": "loc-bommanahalli",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardId": "ward-175",
+      "name": "Bommanahalli",
+      "pincode": "560068",
+      "aliases": [
+        "Hongasandra",
+        "Roopena Agrahara"
+      ],
+      "center": {
+        "lat": 12.903,
+        "lng": 77.6242
+      }
+    },
+    {
+      "id": "loc-begur",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardId": "ward-192",
+      "name": "Begur",
+      "pincode": "560068",
+      "aliases": [
+        "Akshayanagar",
+        "Begur Road"
+      ],
+      "center": {
+        "lat": 12.8805,
+        "lng": 77.6258
+      }
+    },
+    {
+      "id": "loc-singasandra",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardId": "ward-191",
+      "name": "Singasandra",
+      "pincode": "560068",
+      "aliases": [
+        "Kudlu",
+        "Kudlu Gate"
+      ],
+      "center": {
+        "lat": 12.8825,
+        "lng": 77.644
+      }
+    },
+    {
+      "id": "loc-arekere",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardId": "ward-193",
+      "name": "Arekere",
+      "pincode": "560076",
+      "aliases": [
+        "Arakere",
+        "Hulimavu",
+        "Bannerghatta Road"
+      ],
+      "center": {
+        "lat": 12.8855,
+        "lng": 77.602
+      }
+    },
+    {
+      "id": "loc-gottigere",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardId": "ward-194",
+      "name": "Gottigere",
+      "pincode": "560083",
+      "center": {
+        "lat": 12.8565,
+        "lng": 77.5892
+      }
+    },
+    {
+      "id": "loc-bilekahalli",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardId": "ward-188",
+      "name": "Bilekahalli",
+      "pincode": "560076",
+      "aliases": [
+        "IIMB",
+        "Vijaya Bank Layout"
+      ],
+      "center": {
+        "lat": 12.8992,
+        "lng": 77.6078
+      }
+    },
+    {
+      "id": "loc-puttenahalli",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardId": "ward-187",
+      "name": "Puttenahalli",
+      "pincode": "560078",
+      "aliases": [
+        "Jaraganahalli",
+        "Yelachenahalli"
+      ],
+      "center": {
+        "lat": 12.892,
+        "lng": 77.585
+      }
+    },
+    {
+      "id": "loc-konanakunte",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardId": "ward-195",
+      "name": "Konanakunte",
+      "pincode": "560062",
+      "aliases": [
+        "Anjanapura",
+        "Kanakapura Road"
+      ],
+      "center": {
+        "lat": 12.875,
+        "lng": 77.565
+      }
+    },
+    {
+      "id": "loc-electronic-city",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-bommanahalli",
+      "wardId": "ward-196",
+      "name": "Electronic City",
+      "pincode": "560100",
+      "aliases": [
+        "Electronics City",
+        "Neeladri Nagar",
+        "Phase 1"
+      ],
+      "center": {
+        "lat": 12.8452,
+        "lng": 77.6602
+      }
+    },
+    {
+      "id": "loc-yelahanka",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-yelahanka",
+      "wardId": "ward-1",
+      "name": "Yelahanka",
+      "pincode": "560064",
+      "aliases": [
+        "Yelahanka Old Town",
+        "Kogilu"
+      ],
+      "center": {
+        "lat": 13.1007,
+        "lng": 77.5963
+      }
+    },
+    {
+      "id": "loc-yelahanka-new-town",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-yelahanka",
+      "wardId": "ward-4",
+      "name": "Yelahanka New Town",
+      "pincode": "560064",
+      "aliases": [
+        "Attur Layout",
+        "Allalasandra"
+      ],
+      "center": {
+        "lat": 13.097,
+        "lng": 77.58
+      }
+    },
+    {
+      "id": "loc-jakkur",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-yelahanka",
+      "wardId": "ward-5",
+      "name": "Jakkur",
+      "pincode": "560064",
+      "aliases": [
+        "Jakkur Lake",
+        "Amruthahalli"
+      ],
+      "center": {
+        "lat": 13.0785,
+        "lng": 77.6095
+      }
+    },
+    {
+      "id": "loc-thanisandra",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-yelahanka",
+      "wardId": "ward-6",
+      "name": "Thanisandra",
+      "pincode": "560077",
+      "aliases": [
+        "Nagavara",
+        "Manyata Tech Park"
+      ],
+      "center": {
+        "lat": 13.0588,
+        "lng": 77.6309
+      }
+    },
+    {
+      "id": "loc-sahakara-nagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-yelahanka",
+      "wardId": "ward-7",
+      "name": "Sahakara Nagar",
+      "pincode": "560092",
+      "aliases": [
+        "Sahakarnagar",
+        "Byatarayanapura"
+      ],
+      "center": {
+        "lat": 13.0622,
+        "lng": 77.5892
+      }
+    },
+    {
+      "id": "loc-kodigehalli",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-yelahanka",
+      "wardId": "ward-8",
+      "name": "Kodigehalli",
+      "pincode": "560092",
+      "aliases": [
+        "Tindlu"
+      ],
+      "center": {
+        "lat": 13.063,
+        "lng": 77.575
+      }
+    },
+    {
+      "id": "loc-vidyaranyapura",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-yelahanka",
+      "wardId": "ward-9",
+      "name": "Vidyaranyapura",
+      "pincode": "560097",
+      "aliases": [
+        "BEL Layout"
+      ],
+      "center": {
+        "lat": 13.0816,
+        "lng": 77.5562
+      }
+    },
+    {
+      "id": "loc-hebbal",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-yelahanka",
+      "wardId": "ward-21",
+      "name": "Hebbal",
+      "pincode": "560024",
+      "aliases": [
+        "RT Nagar",
+        "Sanjaynagar",
+        "Kempapura"
+      ],
+      "center": {
+        "lat": 13.0354,
+        "lng": 77.597
+      }
+    },
+    {
+      "id": "loc-rt-nagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-yelahanka",
+      "wardId": "ward-21",
+      "name": "R.T. Nagar",
+      "pincode": "560032",
+      "aliases": [
+        "RT Nagar",
+        "Ganganagar"
+      ],
+      "center": {
+        "lat": 13.0247,
+        "lng": 77.5948
+      }
+    },
+    {
+      "id": "loc-dasarahalli",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-dasarahalli",
+      "wardId": "ward-15",
+      "name": "T. Dasarahalli",
+      "pincode": "560057",
+      "aliases": [
+        "Dasarahalli"
+      ],
+      "center": {
+        "lat": 13.0434,
+        "lng": 77.5125
+      }
+    },
+    {
+      "id": "loc-bagalgunte",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-dasarahalli",
+      "wardId": "ward-14",
+      "name": "Bagalgunte",
+      "pincode": "560073",
+      "aliases": [
+        "Hesaraghatta Road"
+      ],
+      "center": {
+        "lat": 13.057,
+        "lng": 77.5085
+      }
+    },
+    {
+      "id": "loc-shettyhalli",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-dasarahalli",
+      "wardId": "ward-12",
+      "name": "Shettyhalli",
+      "pincode": "560015",
+      "aliases": [
+        "Jalahalli West"
+      ],
+      "center": {
+        "lat": 13.066,
+        "lng": 77.523
+      }
+    },
+    {
+      "id": "loc-peenya",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-dasarahalli",
+      "wardId": "ward-39",
+      "name": "Peenya",
+      "pincode": "560058",
+      "aliases": [
+        "Peenya Industrial Area",
+        "Chokkasandra"
+      ],
+      "center": {
+        "lat": 13.0329,
+        "lng": 77.5273
+      }
+    },
+    {
+      "id": "loc-hegganahalli",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-dasarahalli",
+      "wardId": "ward-71",
+      "name": "Hegganahalli",
+      "pincode": "560091",
+      "aliases": [
+        "Sunkadakatte East"
+      ],
+      "center": {
+        "lat": 13.0055,
+        "lng": 77.503
+      }
+    },
+    {
+      "id": "loc-mallasandra",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-dasarahalli",
+      "wardId": "ward-13",
+      "name": "Mallasandra",
+      "pincode": "560057",
+      "center": {
+        "lat": 13.054,
+        "lng": 77.522
+      }
+    },
+    {
+      "id": "loc-rr-nagar",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-rrnagar",
+      "wardId": "ward-160",
+      "name": "Rajarajeshwari Nagar",
+      "pincode": "560098",
+      "aliases": [
+        "RR Nagar",
+        "BEML Layout",
+        "Ideal Homes"
+      ],
+      "center": {
+        "lat": 12.9141,
+        "lng": 77.5198
+      }
+    },
+    {
+      "id": "loc-kengeri",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-rrnagar",
+      "wardId": "ward-159",
+      "name": "Kengeri",
+      "pincode": "560060",
+      "aliases": [
+        "Kengeri Satellite Town",
+        "Mysore Road"
+      ],
+      "center": {
+        "lat": 12.9175,
+        "lng": 77.4833
+      }
+    },
+    {
+      "id": "loc-jnana-bharathi",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-rrnagar",
+      "wardId": "ward-129",
+      "name": "Jnana Bharathi",
+      "pincode": "560056",
+      "aliases": [
+        "Bangalore University",
+        "Mariyappana Palya"
+      ],
+      "center": {
+        "lat": 12.9445,
+        "lng": 77.5095
+      }
+    },
+    {
+      "id": "loc-ullal",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-rrnagar",
+      "wardId": "ward-130",
+      "name": "Ullal",
+      "pincode": "560056",
+      "aliases": [
+        "Sir M Visvesvaraya Layout"
+      ],
+      "center": {
+        "lat": 12.9598,
+        "lng": 77.4846
+      }
+    },
+    {
+      "id": "loc-nayandahalli",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-rrnagar",
+      "wardId": "ward-131",
+      "name": "Nayandahalli",
+      "pincode": "560039",
+      "aliases": [
+        "Deepanjali Nagar"
+      ],
+      "center": {
+        "lat": 12.9441,
+        "lng": 77.5236
+      }
+    },
+    {
+      "id": "loc-jalahalli",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-rrnagar",
+      "wardId": "ward-38",
+      "name": "Jalahalli",
+      "pincode": "560013",
+      "aliases": [
+        "HMT Ward",
+        "Jalahalli Cross"
+      ],
+      "center": {
+        "lat": 13.0445,
+        "lng": 77.5435
+      }
+    },
+    {
+      "id": "loc-herohalli",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-rrnagar",
+      "wardId": "ward-72",
+      "name": "Herohalli",
+      "pincode": "560091",
+      "aliases": [
+        "Sunkadakatte"
+      ],
+      "center": {
+        "lat": 12.989,
+        "lng": 77.498
+      }
+    },
+    {
+      "id": "loc-laggere",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-rrnagar",
+      "wardId": "ward-69",
+      "name": "Laggere",
+      "pincode": "560058",
+      "center": {
+        "lat": 13.008,
+        "lng": 77.521
+      }
+    },
+    {
+      "id": "loc-cooke-town-l0py",
+      "cityId": "city-bengaluru",
+      "zoneId": "zone-east",
+      "wardId": "ward-78",
+      "name": "Cooke Town",
+      "pincode": "560005",
+      "aliases": [
+        "Richards Town",
+        "Cooke Town Extension"
+      ],
+      "center": {
+        "lat": 13.0038,
+        "lng": 77.6248
+      },
+      "isCustomAdded": true
+    }
+  ]
+}

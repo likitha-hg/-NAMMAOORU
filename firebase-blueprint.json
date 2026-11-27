@@ -1,0 +1,653 @@
+{
+  "entities": {
+    "AdminRecord": {
+      "title": "AdminRecord",
+      "description": "Trusted administrator grant record keyed by Firebase Auth UID.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "minLength": 3,
+          "maxLength": 254
+        },
+        "grantedBy": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["uid", "email", "grantedBy", "createdAt"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Private user account profile and authoritative RBAC role assignment.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "minLength": 3,
+          "maxLength": 254
+        },
+        "role": {
+          "type": "string",
+          "enum": ["citizen", "government", "ngo", "admin"]
+        },
+        "approvalStatus": {
+          "type": "string",
+          "enum": ["approved", "pending", "rejected"]
+        },
+        "departmentId": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "departmentName": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "organisationId": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "organisationName": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "neighbourhood": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "phoneNumber": {
+          "type": "string",
+          "maxLength": 25
+        },
+        "address": {
+          "type": "string",
+          "maxLength": 240
+        },
+        "preferredLanguage": {
+          "type": "string",
+          "enum": ["English", "Kannada", "Hindi"]
+        },
+        "notificationPreferences": {
+          "type": "object",
+          "properties": {
+            "statusUpdates": { "type": "boolean" },
+            "verificationRequests": { "type": "boolean" },
+            "communityActivities": { "type": "boolean" },
+            "departmentProgress": { "type": "boolean" }
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "uid",
+        "displayName",
+        "email",
+        "role",
+        "approvalStatus",
+        "departmentId",
+        "departmentName",
+        "organisationId",
+        "organisationName",
+        "neighbourhood",
+        "preferredLanguage",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "RoleAccessRequest": {
+      "title": "RoleAccessRequest",
+      "description": "Pending request for elevated Government Department, NGO, or Administrator access requiring admin approval.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "minLength": 3,
+          "maxLength": 254
+        },
+        "requestedRole": {
+          "type": "string",
+          "enum": ["government", "ngo", "admin"]
+        },
+        "organisationName": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120
+        },
+        "departmentId": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "organisationId": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "justification": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 500
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "approved", "rejected"]
+        },
+        "reviewedBy": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "uid",
+        "displayName",
+        "email",
+        "requestedRole",
+        "organisationName",
+        "departmentId",
+        "organisationId",
+        "justification",
+        "status",
+        "reviewedBy",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "CivicReport": {
+      "title": "CivicReport",
+      "description": "Private citizen-submitted neighbourhood civic report with department assignment and verification lifecycle.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "reporterUid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "reporterName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "title": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "description": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 2000
+        },
+        "category": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 80
+        },
+        "neighbourhood": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 80
+        },
+        "address": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 240
+        },
+        "dateSubmitted": {
+          "type": "string",
+          "minLength": 4,
+          "maxLength": 40
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Submitted",
+            "Under review",
+            "Assigned",
+            "In progress",
+            "Resolution reported",
+            "Awaiting citizen verification",
+            "Citizen verified",
+            "Disputed / Reopened"
+          ]
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["Low", "Medium", "High", "Urgent"]
+        },
+        "method": {
+          "type": "string",
+          "enum": ["Photograph", "Voice", "Text"]
+        },
+        "language": {
+          "type": "string",
+          "enum": ["English", "Kannada", "Hindi"]
+        },
+        "assignedDepartmentId": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "suggestedDepartment": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120
+        },
+        "aiClassificationNote": {
+          "type": "string",
+          "maxLength": 400
+        },
+        "evidenceSummary": {
+          "type": "string",
+          "maxLength": 400
+        },
+        "mapX": {
+          "type": "number"
+        },
+        "mapY": {
+          "type": "number"
+        },
+        "lat": {
+          "type": "number"
+        },
+        "lng": {
+          "type": "number"
+        },
+        "formattedAddress": {
+          "type": "string",
+          "maxLength": 240
+        },
+        "placeId": {
+          "type": "string",
+          "maxLength": 160
+        },
+        "assignedOfficerUids": {
+          "type": "array"
+        },
+        "statusHistory": {
+          "type": "array"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "reporterUid",
+        "reporterName",
+        "title",
+        "description",
+        "category",
+        "neighbourhood",
+        "address",
+        "dateSubmitted",
+        "status",
+        "priority",
+        "method",
+        "language",
+        "assignedDepartmentId",
+        "suggestedDepartment",
+        "aiClassificationNote",
+        "evidenceSummary",
+        "mapX",
+        "mapY",
+        "assignedOfficerUids",
+        "statusHistory",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "NgoActivity": {
+      "title": "NgoActivity",
+      "description": "Community and NGO-led neighbourhood initiative tracked independently of official government report resolution.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160
+        },
+        "category": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 80
+        },
+        "neighbourhood": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 80
+        },
+        "location": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 200
+        },
+        "date": {
+          "type": "string",
+          "minLength": 4,
+          "maxLength": 40
+        },
+        "timeWindow": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 60
+        },
+        "organiser": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120
+        },
+        "organisationId": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "permittedNgoUids": {
+          "type": "array"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 1000
+        },
+        "volunteersJoined": {
+          "type": "number"
+        },
+        "volunteerGoal": {
+          "type": "number"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["Available", "Accepted", "Ongoing", "Completed", "Declined"]
+        },
+        "evidenceNote": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "visibility": {
+          "type": "string",
+          "enum": ["public", "ngo_only"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "category",
+        "neighbourhood",
+        "location",
+        "date",
+        "timeWindow",
+        "organiser",
+        "organisationId",
+        "permittedNgoUids",
+        "description",
+        "volunteersJoined",
+        "volunteerGoal",
+        "status",
+        "evidenceNote",
+        "visibility",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "CivicCategory": {
+      "title": "CivicCategory",
+      "description": "Administrator-managed civic issue category and default department mapping.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 80
+        },
+        "defaultDepartment": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120
+        },
+        "defaultDepartmentId": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 80
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "reportCount": {
+          "type": "number"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "defaultDepartment",
+        "defaultDepartmentId",
+        "active",
+        "reportCount",
+        "updatedAt"
+      ]
+    },
+    "CivicNotification": {
+      "title": "CivicNotification",
+      "description": "Private notification scoped to a single recipient UID.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "recipientUid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "type": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 80
+        },
+        "title": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 160
+        },
+        "message": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 500
+        },
+        "timestampLabel": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 60
+        },
+        "read": {
+          "type": "boolean"
+        },
+        "relatedPage": {
+          "type": "string",
+          "maxLength": 40
+        },
+        "relatedReportId": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "relatedActivityId": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "recipientUid",
+        "type",
+        "title",
+        "message",
+        "timestampLabel",
+        "read",
+        "relatedPage",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "ActivityParticipation": {
+      "title": "ActivityParticipation",
+      "description": "Authenticated citizen volunteer registration for a community activity.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 2, "maxLength": 128 },
+        "activityId": { "type": "string", "minLength": 2, "maxLength": 64 },
+        "activityTitle": { "type": "string", "minLength": 3, "maxLength": 160 },
+        "userUid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "userName": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "userEmail": { "type": "string", "format": "email", "minLength": 3, "maxLength": 254 },
+        "neighbourhood": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "status": { "type": "string", "enum": ["registered", "cancelled"] },
+        "createdAtLabel": { "type": "string", "minLength": 2, "maxLength": 60 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "id",
+        "activityId",
+        "activityTitle",
+        "userUid",
+        "userName",
+        "userEmail",
+        "neighbourhood",
+        "status",
+        "createdAtLabel",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/admins/{uid}": {
+      "schema": { "$ref": "#/entities/AdminRecord" },
+      "description": "Trusted admin role grants verified by Firestore Security Rules."
+    },
+    "/users/{uid}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Private user profiles and authoritative RBAC assignments (PII restricted to owner and admin)."
+    },
+    "/roleRequests/{uid}": {
+      "schema": { "$ref": "#/entities/RoleAccessRequest" },
+      "description": "Requests for Government Department, NGO, or Administrator approval."
+    },
+    "/reports/{reportId}": {
+      "schema": { "$ref": "#/entities/CivicReport" },
+      "description": "Civic reports isolated by reporterUid (citizen), assignedDepartmentId/assignedOfficerUids (government), and admin."
+    },
+    "/ngoActivities/{activityId}": {
+      "schema": { "$ref": "#/entities/NgoActivity" },
+      "description": "Community and NGO activities managed independently of official government report resolution."
+    },
+    "/activityParticipations/{participationId}": {
+      "schema": { "$ref": "#/entities/ActivityParticipation" },
+      "description": "Owner-scoped volunteer registrations for community activities."
+    },
+    "/categories/{categoryId}": {
+      "schema": { "$ref": "#/entities/CivicCategory" },
+      "description": "Civic issue categories and default department routing configured by administrators."
+    },
+    "/notifications/{notificationId}": {
+      "schema": { "$ref": "#/entities/CivicNotification" },
+      "description": "Private per-user notifications."
+    }
+  }
+}

@@ -1,0 +1,638 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Safety Net: Deny all access by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // =========================================================================
+    // Global Hardened Primitives
+    // =========================================================================
+
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVerifiedUser() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    function isBootstrappedAdmin() {
+      return isVerifiedUser() && request.auth.token.email == 'devstar3940@gcplab.me';
+    }
+
+    function isAdmin() {
+      return isBootstrappedAdmin() || (
+        isVerifiedUser() && exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    function getUserProfile() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function isApprovedDepartmentFor(deptId) {
+      return isVerifiedUser()
+        && deptId is string
+        && deptId.size() > 0
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && getUserProfile().role == 'government'
+        && getUserProfile().approvalStatus == 'approved'
+        && getUserProfile().departmentId == deptId;
+    }
+
+    function isApprovedNgo() {
+      return isVerifiedUser()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && getUserProfile().role == 'ngo'
+        && getUserProfile().approvalStatus == 'approved';
+    }
+
+    function isApprovedNgoFor(orgId) {
+      return isApprovedNgo()
+        && (orgId == '' || getUserProfile().organisationId == orgId);
+    }
+
+    // =========================================================================
+    // Entity Validation Blueprints (Anti-Update-Gap)
+    // =========================================================================
+
+    function isValidAdminRecord(data, uid) {
+      return data.keys().hasAll(['uid', 'email', 'grantedBy', 'createdAt'])
+        && data.keys().hasOnly(['uid', 'email', 'grantedBy', 'createdAt'])
+        && isValidId(data.uid)
+        && data.uid == uid
+        && data.email is string && data.email.size() >= 3 && data.email.size() <= 254
+        && data.grantedBy is string && data.grantedBy.size() >= 1 && data.grantedBy.size() <= 128
+        && data.createdAt is timestamp;
+    }
+
+    function isValidNotificationPrefs(prefs) {
+      return prefs is map
+        && prefs.keys().hasAll([
+          'statusUpdates', 'verificationRequests', 'communityActivities', 'departmentProgress'
+        ])
+        && prefs.keys().hasOnly([
+          'statusUpdates', 'verificationRequests', 'communityActivities', 'departmentProgress'
+        ])
+        && prefs.statusUpdates is bool
+        && prefs.verificationRequests is bool
+        && prefs.communityActivities is bool
+        && prefs.departmentProgress is bool;
+    }
+
+    function isValidUserProfile(data, uid) {
+      return data.keys().hasAll([
+          'uid', 'displayName', 'email', 'role', 'approvalStatus',
+          'departmentId', 'departmentName', 'organisationId', 'organisationName',
+          'neighbourhood', 'preferredLanguage', 'createdAt', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'uid', 'displayName', 'email', 'role', 'approvalStatus',
+          'departmentId', 'departmentName', 'organisationId', 'organisationName',
+          'neighbourhood', 'preferredLanguage', 'phoneNumber', 'address',
+          'notificationPreferences', 'createdAt', 'updatedAt'
+        ])
+        && isValidId(data.uid)
+        && data.uid == uid
+        && data.displayName is string && data.displayName.size() >= 1 && data.displayName.size() <= 120
+        && data.email is string && data.email.size() >= 3 && data.email.size() <= 254
+        && data.role in ['citizen', 'government', 'ngo', 'admin']
+        && data.approvalStatus in ['approved', 'pending', 'rejected']
+        && data.departmentId is string && data.departmentId.size() <= 80
+        && data.departmentName is string && data.departmentName.size() <= 120
+        && data.organisationId is string && data.organisationId.size() <= 80
+        && data.organisationName is string && data.organisationName.size() <= 120
+        && data.neighbourhood is string && data.neighbourhood.size() >= 1 && data.neighbourhood.size() <= 80
+        && data.preferredLanguage in ['English', 'Kannada', 'Hindi']
+        && (!('phoneNumber' in data) || (data.phoneNumber is string && data.phoneNumber.size() <= 25))
+        && (!('address' in data) || (data.address is string && data.address.size() <= 240))
+        && (!('notificationPreferences' in data) || isValidNotificationPrefs(data.notificationPreferences))
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidRoleRequest(data, uid) {
+      return data.keys().hasAll([
+          'uid', 'displayName', 'email', 'requestedRole', 'organisationName',
+          'departmentId', 'organisationId', 'justification', 'status',
+          'reviewedBy', 'createdAt', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'uid', 'displayName', 'email', 'requestedRole', 'organisationName',
+          'departmentId', 'organisationId', 'justification', 'status',
+          'reviewedBy', 'createdAt', 'updatedAt'
+        ])
+        && isValidId(data.uid)
+        && data.uid == uid
+        && data.displayName is string && data.displayName.size() >= 1 && data.displayName.size() <= 120
+        && data.email is string && data.email.size() >= 3 && data.email.size() <= 254
+        && data.requestedRole in ['government', 'ngo', 'admin']
+        && data.organisationName is string && data.organisationName.size() >= 2 && data.organisationName.size() <= 120
+        && data.departmentId is string && data.departmentId.size() <= 80
+        && data.organisationId is string && data.organisationId.size() <= 80
+        && data.justification is string && data.justification.size() >= 10 && data.justification.size() <= 500
+        && data.status in ['pending', 'approved', 'rejected']
+        && data.reviewedBy is string && data.reviewedBy.size() <= 128
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidCivicReport(data, reportId) {
+      return data.keys().hasAll([
+          'id', 'reporterUid', 'reporterName', 'title', 'description',
+          'category', 'neighbourhood', 'address', 'dateSubmitted', 'status',
+          'priority', 'method', 'language', 'assignedDepartmentId',
+          'suggestedDepartment', 'aiClassificationNote', 'evidenceSummary',
+          'mapX', 'mapY', 'assignedOfficerUids', 'statusHistory',
+          'createdAt', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'id', 'reporterUid', 'reporterName', 'title', 'description',
+          'category', 'neighbourhood', 'address', 'dateSubmitted', 'status',
+          'priority', 'method', 'language', 'assignedDepartmentId',
+          'suggestedDepartment', 'aiClassificationNote', 'evidenceSummary',
+          'mapX', 'mapY', 'lat', 'lng', 'formattedAddress', 'placeId',
+          'assignedOfficerUids', 'statusHistory', 'createdAt', 'updatedAt'
+        ])
+        && isValidId(data.id)
+        && data.id == reportId
+        && isValidId(data.reporterUid)
+        && data.reporterName is string && data.reporterName.size() >= 1 && data.reporterName.size() <= 120
+        && data.title is string && data.title.size() >= 3 && data.title.size() <= 160
+        && data.description is string && data.description.size() >= 5 && data.description.size() <= 2000
+        && data.category is string && data.category.size() >= 2 && data.category.size() <= 80
+        && data.neighbourhood is string && data.neighbourhood.size() >= 2 && data.neighbourhood.size() <= 80
+        && data.address is string && data.address.size() >= 2 && data.address.size() <= 240
+        && data.dateSubmitted is string && data.dateSubmitted.size() >= 4 && data.dateSubmitted.size() <= 40
+        && data.status in [
+          'Submitted', 'Under review', 'Assigned', 'In progress',
+          'Resolution reported', 'Awaiting citizen verification',
+          'Citizen verified', 'Disputed / Reopened'
+        ]
+        && data.priority in ['Low', 'Medium', 'High', 'Urgent']
+        && data.method in ['Photograph', 'Voice', 'Text']
+        && data.language in ['English', 'Kannada', 'Hindi']
+        && data.assignedDepartmentId is string && data.assignedDepartmentId.size() <= 80
+        && data.suggestedDepartment is string && data.suggestedDepartment.size() >= 2 && data.suggestedDepartment.size() <= 120
+        && data.aiClassificationNote is string && data.aiClassificationNote.size() <= 500
+        && data.evidenceSummary is string && data.evidenceSummary.size() <= 400
+        && data.mapX is number && data.mapX >= 0 && data.mapX <= 100
+        && data.mapY is number && data.mapY >= 0 && data.mapY <= 100
+        && (!('lat' in data) || (data.lat is number && data.lat >= -90 && data.lat <= 90))
+        && (!('lng' in data) || (data.lng is number && data.lng >= -180 && data.lng <= 180))
+        && (!('formattedAddress' in data) || (data.formattedAddress is string && data.formattedAddress.size() <= 240))
+        && (!('placeId' in data) || (data.placeId is string && data.placeId.size() <= 160))
+        && data.assignedOfficerUids is list && data.assignedOfficerUids.size() <= 20
+        && (data.assignedOfficerUids.size() == 0 || data.assignedOfficerUids[0] is string)
+        && data.statusHistory is list && data.statusHistory.size() >= 1 && data.statusHistory.size() <= 50
+        && data.statusHistory[0] is map
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidNgoActivity(data, activityId) {
+      return data.keys().hasAll([
+          'id', 'title', 'category', 'neighbourhood', 'location', 'date',
+          'timeWindow', 'organiser', 'organisationId', 'permittedNgoUids',
+          'description', 'volunteersJoined', 'volunteerGoal', 'status',
+          'evidenceNote', 'visibility', 'createdAt', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'id', 'title', 'category', 'neighbourhood', 'location', 'date',
+          'timeWindow', 'organiser', 'organisationId', 'permittedNgoUids',
+          'description', 'volunteersJoined', 'volunteerGoal', 'status',
+          'evidenceNote', 'visibility', 'createdAt', 'updatedAt'
+        ])
+        && isValidId(data.id)
+        && data.id == activityId
+        && data.title is string && data.title.size() >= 3 && data.title.size() <= 160
+        && data.category is string && data.category.size() >= 2 && data.category.size() <= 80
+        && data.neighbourhood is string && data.neighbourhood.size() >= 2 && data.neighbourhood.size() <= 80
+        && data.location is string && data.location.size() >= 2 && data.location.size() <= 200
+        && data.date is string && data.date.size() >= 4 && data.date.size() <= 40
+        && data.timeWindow is string && data.timeWindow.size() >= 2 && data.timeWindow.size() <= 60
+        && data.organiser is string && data.organiser.size() >= 2 && data.organiser.size() <= 120
+        && data.organisationId is string && data.organisationId.size() <= 80
+        && data.permittedNgoUids is list && data.permittedNgoUids.size() <= 20
+        && (data.permittedNgoUids.size() == 0 || data.permittedNgoUids[0] is string)
+        && data.description is string && data.description.size() >= 5 && data.description.size() <= 1000
+        && data.volunteersJoined is number && data.volunteersJoined >= 0 && data.volunteersJoined <= 10000
+        && data.volunteerGoal is number && data.volunteerGoal >= 1 && data.volunteerGoal <= 10000
+        && data.status in ['Available', 'Accepted', 'Ongoing', 'Completed', 'Declined']
+        && data.evidenceNote is string && data.evidenceNote.size() <= 500
+        && data.visibility in ['public', 'ngo_only']
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidActivityParticipation(data, participationId) {
+      return data.keys().hasAll([
+          'id', 'activityId', 'activityTitle', 'userUid', 'userName', 'userEmail',
+          'neighbourhood', 'status', 'createdAtLabel', 'createdAt', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'id', 'activityId', 'activityTitle', 'userUid', 'userName', 'userEmail',
+          'neighbourhood', 'status', 'createdAtLabel', 'createdAt', 'updatedAt'
+        ])
+        && isValidId(data.id)
+        && data.id == participationId
+        && isValidId(data.activityId)
+        && data.activityTitle is string && data.activityTitle.size() >= 3 && data.activityTitle.size() <= 160
+        && isValidId(data.userUid)
+        && data.userName is string && data.userName.size() >= 1 && data.userName.size() <= 120
+        && data.userEmail is string && data.userEmail.size() >= 3 && data.userEmail.size() <= 254
+        && data.neighbourhood is string && data.neighbourhood.size() >= 1 && data.neighbourhood.size() <= 80
+        && data.status in ['registered', 'cancelled']
+        && data.createdAtLabel is string && data.createdAtLabel.size() >= 2 && data.createdAtLabel.size() <= 60
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidCategory(data, categoryId) {
+      return data.keys().hasAll([
+          'id', 'name', 'defaultDepartment', 'defaultDepartmentId',
+          'active', 'reportCount', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'id', 'name', 'defaultDepartment', 'defaultDepartmentId',
+          'active', 'reportCount', 'updatedAt'
+        ])
+        && isValidId(data.id)
+        && data.id == categoryId
+        && data.name is string && data.name.size() >= 2 && data.name.size() <= 80
+        && data.defaultDepartment is string && data.defaultDepartment.size() >= 2 && data.defaultDepartment.size() <= 120
+        && data.defaultDepartmentId is string && data.defaultDepartmentId.size() >= 2 && data.defaultDepartmentId.size() <= 80
+        && data.active is bool
+        && data.reportCount is number && data.reportCount >= 0 && data.reportCount <= 1000000
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidNotification(data, notifId) {
+      return data.keys().hasAll([
+          'id', 'recipientUid', 'type', 'title', 'message',
+          'timestampLabel', 'read', 'relatedPage', 'createdAt', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'id', 'recipientUid', 'type', 'title', 'message',
+          'timestampLabel', 'read', 'relatedPage', 'relatedReportId',
+          'relatedActivityId', 'createdAt', 'updatedAt'
+        ])
+        && isValidId(data.id)
+        && data.id == notifId
+        && isValidId(data.recipientUid)
+        && data.type is string && data.type.size() >= 2 && data.type.size() <= 80
+        && data.title is string && data.title.size() >= 2 && data.title.size() <= 160
+        && data.message is string && data.message.size() >= 2 && data.message.size() <= 500
+        && data.timestampLabel is string && data.timestampLabel.size() >= 2 && data.timestampLabel.size() <= 60
+        && data.read is bool
+        && data.relatedPage is string && data.relatedPage.size() <= 40
+        && (!('relatedReportId' in data) || (data.relatedReportId is string && data.relatedReportId.size() <= 64))
+        && (!('relatedActivityId' in data) || (data.relatedActivityId is string && data.relatedActivityId.size() <= 64))
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    // =========================================================================
+    // Collection Security Rules
+    // =========================================================================
+
+    match /admins/{uid} {
+      allow get: if isValidId(uid) && (isOwner(uid) || isAdmin());
+      allow list: if isBootstrappedAdmin();
+      allow create: if isVerifiedUser()
+        && isValidId(uid)
+        && isValidAdminRecord(incoming(), uid)
+        && incoming().createdAt == request.time
+        && isAdmin();
+      allow update: if false;
+      allow delete: if isValidId(uid) && isAdmin() && uid != request.auth.uid;
+    }
+
+    match /users/{uid} {
+      // PII Isolation: Strictly owner or verified admin
+      allow get: if isValidId(uid) && (isOwner(uid) || isAdmin());
+      allow list: if isBootstrappedAdmin() || (isSignedIn() && resource.data.uid == request.auth.uid);
+
+      // Registration: Never allow non-admin users to self-assign elevated roles
+      allow create: if isSignedIn()
+        && isValidId(uid)
+        && isValidUserProfile(incoming(), uid)
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time
+        && (
+          (
+            isOwner(uid)
+            && incoming().email == request.auth.token.email
+            && (
+              (
+                incoming().role == 'citizen'
+                && incoming().approvalStatus == 'approved'
+                && incoming().departmentId == ''
+                && incoming().organisationId == ''
+              ) || (
+                isBootstrappedAdmin()
+                && incoming().role == 'admin'
+                && incoming().approvalStatus == 'approved'
+              )
+            )
+          ) || isAdmin()
+        );
+
+      // Action-Based Update: Owner can only edit personal profile & preferences; Admin assigns roles
+      allow update: if isSignedIn()
+        && isValidId(uid)
+        && isValidUserProfile(incoming(), uid)
+        && incoming().uid == existing().uid
+        && incoming().email == existing().email
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && (
+          (
+            isOwner(uid)
+            && incoming().diff(existing()).affectedKeys().hasOnly([
+              'displayName', 'neighbourhood', 'preferredLanguage',
+              'phoneNumber', 'address', 'notificationPreferences', 'updatedAt'
+            ])
+          ) || (
+            isAdmin()
+            && incoming().diff(existing()).affectedKeys().hasOnly([
+              'role', 'approvalStatus', 'departmentId', 'departmentName',
+              'organisationId', 'organisationName', 'updatedAt'
+            ])
+          )
+        );
+
+      allow delete: if isValidId(uid) && isAdmin() && uid != request.auth.uid;
+    }
+
+    match /roleRequests/{uid} {
+      allow get: if isValidId(uid) && (isOwner(uid) || isAdmin());
+      allow list: if isBootstrappedAdmin() || (isSignedIn() && resource.data.uid == request.auth.uid);
+
+      allow create: if isSignedIn()
+        && isValidId(uid)
+        && isValidRoleRequest(incoming(), uid)
+        && isOwner(uid)
+        && incoming().email == request.auth.token.email
+        && incoming().status == 'pending'
+        && incoming().reviewedBy == ''
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+
+      // Terminal State Locking: Only Admin can review pending requests
+      allow update: if isVerifiedUser()
+        && isValidId(uid)
+        && isValidRoleRequest(incoming(), uid)
+        && incoming().uid == existing().uid
+        && incoming().email == existing().email
+        && incoming().requestedRole == existing().requestedRole
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && isAdmin()
+        && existing().status == 'pending'
+        && incoming().status in ['approved', 'rejected']
+        && incoming().diff(existing()).affectedKeys().hasOnly([
+          'status', 'reviewedBy', 'departmentId', 'organisationId', 'updatedAt'
+        ]);
+
+      allow delete: if isValidId(uid) && (
+        (isOwner(uid) && existing().status in ['pending', 'rejected']) || isAdmin()
+      );
+    }
+
+    match /reports/{reportId} {
+      // Strict Role-Scoped Access:
+      // - Citizens: only their own private reports
+      // - Government: only reports assigned to their approved department
+      // - Admins: full oversight
+      // - NGOs: no access to private citizen reports
+      allow get: if isValidId(reportId) && (
+        isAdmin()
+        || (isSignedIn() && existing().reporterUid == request.auth.uid)
+        || isApprovedDepartmentFor(existing().assignedDepartmentId)
+        || (isSignedIn() && request.auth.uid in existing().assignedOfficerUids)
+      );
+
+      // Cost-optimized list queries (no get/exists inside allow list)
+      allow list: if isBootstrappedAdmin()
+        || (isSignedIn() && resource.data.reporterUid == request.auth.uid)
+        || (isSignedIn() && request.auth.uid in resource.data.assignedOfficerUids);
+
+      allow create: if isSignedIn()
+        && isValidId(reportId)
+        && isValidCivicReport(incoming(), reportId)
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time
+        && (
+          (
+            incoming().reporterUid == request.auth.uid
+            && incoming().status == 'Submitted'
+          ) || isAdmin()
+        );
+
+      // Action-Based Update with Terminal State Locking
+      allow update: if isSignedIn()
+        && isValidId(reportId)
+        && isValidCivicReport(incoming(), reportId)
+        && incoming().id == existing().id
+        && incoming().reporterUid == existing().reporterUid
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && (
+          // Tier 1: Administrator override & assignment
+          (
+            isAdmin()
+            && incoming().diff(existing()).affectedKeys().hasOnly([
+              'status', 'priority', 'assignedDepartmentId', 'suggestedDepartment',
+              'assignedOfficerUids', 'statusHistory', 'updatedAt'
+            ])
+          )
+          ||
+          // Tier 2: Citizen verification or dispute on own report
+          (
+            existing().reporterUid == request.auth.uid
+            && existing().status in ['Resolution reported', 'Awaiting citizen verification']
+            && incoming().status in ['Citizen verified', 'Disputed / Reopened']
+            && incoming().diff(existing()).affectedKeys().hasOnly([
+              'status', 'statusHistory', 'updatedAt'
+            ])
+          )
+          ||
+          // Tier 3: Approved Government Department status progression (cannot forge Citizen verified)
+          (
+            isApprovedDepartmentFor(existing().assignedDepartmentId)
+            && existing().status != 'Citizen verified'
+            && incoming().status in [
+              'Submitted', 'Under review', 'Assigned', 'In progress',
+              'Resolution reported', 'Awaiting citizen verification'
+            ]
+            && incoming().diff(existing()).affectedKeys().hasOnly([
+              'status', 'priority', 'statusHistory', 'updatedAt'
+            ])
+          )
+        );
+
+      allow delete: if isValidId(reportId) && isAdmin();
+    }
+
+    match /ngoActivities/{activityId} {
+      allow get: if isValidId(activityId) && (
+        isAdmin()
+        || (isSignedIn() && existing().visibility == 'public')
+        || (isSignedIn() && request.auth.uid in existing().permittedNgoUids)
+        || isApprovedNgoFor(existing().organisationId)
+      );
+
+      allow list: if isBootstrappedAdmin()
+        || (isSignedIn() && resource.data.visibility == 'public')
+        || (isSignedIn() && request.auth.uid in resource.data.permittedNgoUids);
+
+      allow create: if isVerifiedUser()
+        && isValidId(activityId)
+        && isValidNgoActivity(incoming(), activityId)
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time
+        && (isAdmin() || isApprovedNgo());
+
+      allow update: if isSignedIn()
+        && isValidId(activityId)
+        && isValidNgoActivity(incoming(), activityId)
+        && incoming().id == existing().id
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && (
+          // Tier 1: Admin override
+          (
+            isAdmin()
+            && incoming().diff(existing()).affectedKeys().hasOnly([
+              'status', 'evidenceNote', 'organisationId', 'permittedNgoUids',
+              'volunteersJoined', 'visibility', 'updatedAt'
+            ])
+          )
+          ||
+          // Tier 2: Approved NGO managing permitted activity (Terminal State Locked once Completed)
+          (
+            isApprovedNgoFor(existing().organisationId)
+            && existing().status != 'Completed'
+            && incoming().diff(existing()).affectedKeys().hasOnly([
+              'status', 'evidenceNote', 'organisationId', 'permittedNgoUids', 'updatedAt'
+            ])
+          )
+          ||
+          // Tier 3: Signed-in citizen joining public community drive
+          (
+            existing().visibility == 'public'
+            && existing().status in ['Available', 'Accepted', 'Ongoing']
+            && incoming().volunteersJoined == existing().volunteersJoined + 1
+            && incoming().diff(existing()).affectedKeys().hasOnly([
+              'volunteersJoined', 'updatedAt'
+            ])
+          )
+        );
+
+      allow delete: if isValidId(activityId) && isAdmin();
+    }
+
+    match /activityParticipations/{participationId} {
+      // Strictly owner-scoped volunteer participation records
+      allow get: if isValidId(participationId) && (
+        isAdmin() || (isSignedIn() && existing().userUid == request.auth.uid)
+      );
+      allow list: if isBootstrappedAdmin()
+        || (isSignedIn() && resource.data.userUid == request.auth.uid);
+
+      allow create: if isSignedIn()
+        && isValidId(participationId)
+        && isValidActivityParticipation(incoming(), participationId)
+        && incoming().userUid == request.auth.uid
+        && incoming().status == 'registered'
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+
+      allow update: if isSignedIn()
+        && isValidId(participationId)
+        && isValidActivityParticipation(incoming(), participationId)
+        && incoming().id == existing().id
+        && incoming().activityId == existing().activityId
+        && incoming().userUid == existing().userUid
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && existing().userUid == request.auth.uid
+        && incoming().status == 'cancelled'
+        && incoming().diff(existing()).affectedKeys().hasOnly(['status', 'updatedAt']);
+
+      allow delete: if isValidId(participationId) && (
+        isAdmin() || (isSignedIn() && existing().userUid == request.auth.uid)
+      );
+    }
+
+    match /categories/{categoryId} {
+      allow get: if isValidId(categoryId) && (isSignedIn() && (existing().active == true || isAdmin()));
+      allow list: if isBootstrappedAdmin() || (isSignedIn() && resource.data.active == true);
+      allow create: if isVerifiedUser()
+        && isValidId(categoryId)
+        && isValidCategory(incoming(), categoryId)
+        && incoming().updatedAt == request.time
+        && isAdmin();
+      allow update: if isVerifiedUser()
+        && isValidId(categoryId)
+        && isValidCategory(incoming(), categoryId)
+        && incoming().id == existing().id
+        && incoming().updatedAt == request.time
+        && isAdmin()
+        && incoming().diff(existing()).affectedKeys().hasOnly([
+          'name', 'defaultDepartment', 'defaultDepartmentId', 'active', 'reportCount', 'updatedAt'
+        ]);
+      allow delete: if isValidId(categoryId) && isAdmin();
+    }
+
+    match /notifications/{notificationId} {
+      allow get: if isValidId(notificationId) && (
+        isAdmin() || (isSignedIn() && existing().recipientUid == request.auth.uid)
+      );
+      allow list: if isBootstrappedAdmin()
+        || (isSignedIn() && resource.data.recipientUid == request.auth.uid);
+
+      allow create: if isSignedIn()
+        && isValidId(notificationId)
+        && isValidNotification(incoming(), notificationId)
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time
+        && (incoming().recipientUid == request.auth.uid || isAdmin());
+
+      allow update: if isSignedIn()
+        && isValidId(notificationId)
+        && isValidNotification(incoming(), notificationId)
+        && incoming().id == existing().id
+        && incoming().recipientUid == existing().recipientUid
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && (existing().recipientUid == request.auth.uid || isAdmin())
+        && incoming().diff(existing()).affectedKeys().hasOnly(['read', 'updatedAt']);
+
+      allow delete: if isValidId(notificationId) && (
+        (isSignedIn() && existing().recipientUid == request.auth.uid) || isAdmin()
+      );
+    }
+  }
+}
